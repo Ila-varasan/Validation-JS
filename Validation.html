@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Validation Form</title>
+        <style>
+            .error{
+                color: red;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Simple Validation Form</h2>
+        <form id="myForm"onsubmit="return validateForm()">
+        <label for="name">Name</label>
+        <input type="text"id="name"><br><br>
+        <span id="nameError"class="error">Please enter your name </span><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email"name="email"><br><br>
+        <span id="emailError" class="error">Please enter the valid email</span><br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password"name="password"><br><br>
+        <span id="passwordError" class="error">Please enter your password</span><br><br>
+        <input type="submit" value="Submit">
+        </form>
+        <script>
+        function validateForm() {
+            let isvalid=true;
+        document.getElementById("nameError").style.display="none";
+        document.getElemaentById("emailError").style.display="none";
+        document.getElemaentById("passwordError").style.display="none";
+        let name=document.getElemaentById("name").value.trim();
+        let email=document.getElemaentById("email").value.trim();
+        let psswod=document.getElemaentById("password").value.trim();
+        if(name === ""){
+            document.getElementById("nameError").style.display="block";
+            isvalid="false";
+        }
+        if(email === "" || !email.includes('@')|| !email.includes('.')){
+            document.getElementById("emailError").style.display="block";
+            isvalid="false";
+        }
+        if(password === ""){
+            document.getElementById("passwordError").style.display="block";
+            isvalid="false";
+        }
+        return isvalid;
+    }
+    </script>
+    </body>
+</html>
